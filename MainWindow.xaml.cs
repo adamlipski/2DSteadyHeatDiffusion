@@ -113,7 +113,7 @@ namespace _2DSteadyHeatDiffusion
             var plt = Diffusion.Plot;
             var hm = plt.AddHeatmap(data2D, lockScales: false);
             hm.Smooth = true;
-            hm.
+           
 
             plt.SetAxisLimits(0, 51, 0, 51);
         }
