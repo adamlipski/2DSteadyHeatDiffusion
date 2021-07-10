@@ -5,3 +5,6 @@ Ongoing...
 
 Visit Scott's project [GutHub Pages](https://github.com/ScottPlot/ScottPlot).
 
+## Plans
+Correct the displayed values in the plots.
+

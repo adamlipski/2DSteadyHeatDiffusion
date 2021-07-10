@@ -52,8 +52,6 @@ namespace _2DSteadyHeatDiffusion
 
 
             //Boundary conditions - Top boundary (row) is 1
-            //            T[0,:] = 1.
-
             for (int i = 0; i < N; i++) T[0, i] = 1.0;
 
 
@@ -63,16 +61,11 @@ namespace _2DSteadyHeatDiffusion
             for (int i = 0; i < N; i++) T_new[0, i] = 1.0;
 
             // Error related variables
-            //double epsilon = 1.0E-8;
-            double epsilon = 0.00000008;
+            double epsilon = 1.0E-8;
             double numerical_error = 1.0;
 
-            // Plot for numerical error
-            //            plt.figure(10)
-
-            bool error = numerical_error > epsilon;
             // Check the error tolerance
-            while (error)
+            while (numerical_error > epsilon)
             {   // Computing for all interior points
                 foreach (int i in Enumerable.Range(1, N - 2))
                 {
@@ -99,32 +92,30 @@ namespace _2DSteadyHeatDiffusion
                 {
                     foreach (int j in Enumerable.Range(1, N - 2))
                     {
-                        numerical_error += Math.Abs(T[i, j] - T_new[i, j]);
+                        numerical_error = numerical_error + Math.Abs(T[i, j] - T_new[i, j]);
                     }
 
                 }
-                //MessageBox.Show(numerical_error.ToString());
+
                 // Iteration advancement and reassignment
                 iterations = iterations + 1;
-                T = T_new;
-                error = numerical_error > epsilon;
+
+                // Copy T_new results to T for another iteration
+                T = (double[,])T_new.Clone();
 
             }
-            MessageBox.Show(iterations.ToString());
+            // MessageBox.Show(iterations.ToString());
             return T;
 
         }
         void InitializePlot(double[,] data2D)
         {
-            // var plt = new ScottPlot.Plot(600, 400);
-            var plt = WpfPlot1.Plot;
-            var rand = new Random(0);
-            //double[,] data2D = DataGen.Random2D(rand, 5, 4);
-
+            var plt = Diffusion.Plot;
             var hm = plt.AddHeatmap(data2D, lockScales: false);
             hm.Smooth = true;
+            hm.
 
-            plt.SetAxisLimits(0, 51, 49, 51);
+            plt.SetAxisLimits(0, 51, 0, 51);
         }
     }
 }

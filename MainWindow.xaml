@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <WpfPlot Name="WpfPlot1" />
+        <WpfPlot Name="Diffusion" />
     </Grid>
 </Window>
