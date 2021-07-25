@@ -3,7 +3,7 @@
 ## Description
 Ongoing...
 
-Visit Scott's project [GutHub Pages](https://github.com/ScottPlot/ScottPlot).
+Visit Scott's project [GitHub Pages](https://github.com/ScottPlot/ScottPlot).
 
 ## Plans
 Correct the displayed values in the plots.
